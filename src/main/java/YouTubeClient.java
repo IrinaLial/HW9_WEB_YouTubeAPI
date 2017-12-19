@@ -38,7 +38,7 @@ public class YouTubeClient {
 
     private YouTubeClient (){}
 
-    public static HttpResponse<YouTubeResponse> getActivities(String channelId, int maxResults) {
+    public static HttpResponse<YouTubeResponse> getActivities( String channelId, int maxResults) {
         try {
             return Unirest.get(properties.getProperty("YOU_TUBE"))
                     .routeParam("method", "activities")
@@ -46,14 +46,14 @@ public class YouTubeClient {
                     .queryString("maxResults", maxResults)
                     .queryString("part", "snippet")
                     .queryString("key", properties.getProperty("API_KEY"))
-                    .asObject(YouTubeResponse.class);
+                    .asObject( YouTubeResponse.class);
         } catch (UnirestException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static HttpResponse<YouTubeResponse> getSearchResult(String query, int maxResults) {
+    public static HttpResponse<YouTubeResponse> getSearchResult( String query, int maxResults) {
         try {
             return Unirest.get(properties.getProperty("YOU_TUBE"))
                     .routeParam("method", "search")
@@ -61,7 +61,7 @@ public class YouTubeClient {
                     .queryString("maxResults", maxResults)
                     .queryString("part", "snippet")
                     .queryString("key", properties.getProperty("API_KEY"))
-                    .asObject(YouTubeResponse.class);
+                    .asObject( YouTubeResponse.class);
         } catch (UnirestException e) {
             e.printStackTrace();
         }
